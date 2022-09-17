@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- saved from url=(0107)http://localhost:63342/New%20folder/tao_bang.html?_ijt=39iav4fa5mb08r7q1ipnhl4c03&_ij_reload=RELOAD_ON_SAVE -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Title</title>
+</head>
+<body>
+<h1 style="text-align: center"> thoi khoa bieu lop T0908I</h1>
+<table border="1">
+
+    <tbody><tr style="background-color: darkkhaki">
+        <th>thu 3</th>
+        <th>thu 5</th>
+        <th>thu 7</th>
+    </tr>
+    <tr>
+        <td>CF - T1, L1</td>
+        <td>CF - T2, L2</td>
+        <td>CF - Written Test</td>
+    </tr>
+    <tr>
+        <td>CF - T4,L4</td>
+        <td>CF - T3, L3</td>
+        <td>C - T1, L1</td>
+    </tr>
+</tbody></table>
+<p style="text-align: left">Lop T0908I</p>
+<p>thoi gian hoc: 13h30 - 17h30</p>
+<p> Giao vien: khoa NV</p>
+<p> ngay hoc: thu 3, 5, 7</p>
+<p> phong hoc: class3/lab3</p>
+
+<table border="1">
+
+    <tbody><tr style="text-align: center; background-color: gold">
+        <th colspan="3"></th>
+        <th>thu 3</th>
+        <th>thu 5</th>
+        <th>thu 7</th>
+    </tr>
+    <tr style="text-align: center">
+        <td>tuan</td>
+        <td>ngay bat dau</td>
+        <td>ngay ket thuc</td>
+        <td colspan="3">mon hoc</td>
+    </tr>
+    <tr>
+        <td>01</td>
+        <td>01/09/2009</td>
+        <td>05/09/2009</td>
+        <td> CF - T1,L1</td>
+        <td> CF - T2,L2</td>
+        <td> CF - T3,L3</td>
+    </tr>
+    <tr>
+        <td>02</td>
+        <td>08/09/2009</td>
+        <td>12/09/2009</td>
+        <td> CF - T4,L4</td>
+        <td> CF - Written Test</td>
+        <td> CF - T1,L1</td>
+    </tr>
+    <tr>
+        <td>03</td>
+        <td>...</td>
+        <td>...</td>
+        <td> ...</td>
+        <td> ...</td>
+        <td> ...</td>
+    </tr>
+
+
+</tbody></table>
+
+
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host + 
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash 
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script></body></html>
